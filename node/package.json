@@ -1,0 +1,16 @@
+{
+    "name": "node",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "dev:node": "node --inspect-brk=9229 ./app.js",
+        "dev:nodemon": "nodemon --inspect ./app.js"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.2"
+    },
+    "dependencies": {
+        "koa": "^2.11.0"
+    }
+}

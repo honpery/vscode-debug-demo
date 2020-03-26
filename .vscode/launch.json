@@ -1,0 +1,50 @@
+{
+  // 版本
+  "version": "0.2.0",
+
+  // 配置
+  "configurations": [
+
+    // 简单node
+    {
+      "name": "node - simple",                // 名称
+      "type": "node",                         // 运行时
+      "request": "launch",                    // launch: vscode启进程，attach: 使用现有进程
+      "cwd": "${workspaceFolder}/node",       // 根目录
+      "args": ["app.js"],                     // 参数
+    },
+
+    // 使用script
+    // script中的node要指定--inspect-brk参数，监听端口
+    {
+      "name": "node - script",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/node",
+      "runtimeExecutable": "yarn",                // 运行时程序
+      "runtimeArgs": ["run", "dev:node"],         // 运行时参数
+      "port": 9229,                               // 与node启动的参数相同
+    },
+
+    // nodemon - launch
+    {
+      "name": "node - nodemon - launch",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "nodemon",
+      "args": ["${workspaceFolder}/node/app.js"],
+      "protocol": "inspector",
+      "sourceMaps": true,
+      "restart": true
+    },
+
+    // nodemon - attach
+    {
+      "name": "node - nodemon - attach",
+      "type": "node",
+      "request": "attach",
+      "restart": true,
+      "port": 9229
+    },
+  ]
+}
